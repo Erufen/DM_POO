@@ -9,7 +9,7 @@ struct Element
 	Element* suivant;
 };
 
-Element* liste = NULL;
+Element* liste = NULL; // initialisation de la liste en liste vide
 
 void InsertInPlace(int data)
 {
@@ -22,19 +22,27 @@ void InsertInPlace(int data)
 Element* Rechercher(int data)
 {
 	Element* element = liste;
+	// On se place en première position tant qu'il y a des éléments suivant
+	// jusqu'à ce qu'on trouve un élément de la liste qui correspond à 
+	// notre recherche
 	while (element != NULL && element->data != data)
 		element = element->suivant;
+	// et on renvoi l'élément s'il existe
+	// sinon, NULL s'affichera à l'écran
 	return element;
 }
 
 void popFirst(Element* element)
 {
 	Element* precedent = liste;
+	// si l'élément à supprimer est le premier sur la liste
 	if (element == liste) {
 		liste = NULL;
 		delete element;
 		return;
 	}
+	// dans le cas contraire, il faut détourner le pointeur pour
+	// qu'il pointe vers l'élément suivant
 	while (precedent != NULL && precedent->suivant != element)
 		precedent = precedent->suivant;
 
@@ -45,9 +53,9 @@ void popFirst(Element* element)
 
 void display()
 {
-	Element* element = liste;
+	Element* element = liste; // affiche chaque élément de la liste
 	while (element != NULL) {
-		cout << element->data << "\t";
+		cout << element->data << "\t"; // \t sert à la mise en forme de la liste au lancement du programme
 		element = element->suivant;
 	}
 	cout << endl;
