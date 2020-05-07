@@ -14,6 +14,7 @@ class Patient :
 public:
 
 	void etatPatient(int etatP1, string P1, int etatP2, string P2) {
+	        // compare les chaines de caractères
 		if (etatP1 == etatP2) {
 			cout << "L'état des patients " << P1 << " et " << P2 << " sont identiques." << endl;
 		}
