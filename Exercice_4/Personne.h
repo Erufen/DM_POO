@@ -8,8 +8,7 @@ using namespace std;
 
 class Personne {
 
-protected: // private : éléments non accessibles depuis l'extérieur de la classe
-		   // protected : éléments accessibles par les classes de type héritage
+protected: 
 
 	string Nom;
 	string Prenom;
